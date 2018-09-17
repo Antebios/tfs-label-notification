@@ -2,6 +2,11 @@
 
 This project outputs a .NET Core Windows Service that queries a MSSQL Table that is populated from TFS version control labels.  It then sends an email to a list of users with information about the label that was just created.
 
+  ![Screenshot](./images/outlook1.jpg)
+
+# Requirements
+  This application requires .NET Core SDK 2.1 to compile and .NET Core 2.1 Runtime in order to execute.  I downloaded v2.1.4.  You can grab them from here:  [https://www.microsoft.com/net/download/dotnet-core/2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)
+
 # Database
 
 ## How the data is collected
@@ -56,6 +61,11 @@ This component is very similar to TopShelf.  It allows you to run a Windows Serv
 
   To install the service, open a console and type the command: `dotnet TFSLabelTagNotifcation.dll action:install`.  It will create a service called "Team Foundation Notification Service" (short name is TFSNotificationService), and runs as 'Local System' permission.
 
+# Results
+  The email you recieved will look like this:
+
+  ![Screenshot](./images/outlook1.jpg)
+
 # How to monitor
   A log file is created called "log.txt" that looks like this:
 ```Started
@@ -69,3 +79,6 @@ Record marked SENT for LabelId: 279
 Polling at 2018-09-15T00:51:36.8014713-04:00
 Polling at 2018-09-15T00:56:36.8098830-04:00
 ```
+
+# Side Benefits
+  Since this is a .NET Core service application, this can run inside a container if you want to.
