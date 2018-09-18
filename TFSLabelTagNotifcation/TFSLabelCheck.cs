@@ -111,27 +111,37 @@ namespace TFSLabelTagNotifcation
             return strbTable.ToString();
         }
         
-        private bool SendEmail(String Body, String Subject)
+        public bool SendEmail(String Body, String Subject)
         {
             bool IsSent = false;
             try
             {
-                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.server.com");
-                client.UseDefaultCredentials = true;
+                //var client = new System.Net.Mail.SmtpClient("smtp.mailtrap.io", 2525)
+                //{
+                //    Credentials = new System.Net.NetworkCredential("1ab37874acd8a9", "169d00a33c724c"),
+                //    EnableSsl = true
+                //};
+                //client.Send("from@example.com", "Antebios1@gmail.com", "Hello world", "testbody");
+
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.mailtrap.io", 2525);
+                //client.UseDefaultCredentials = true;
+                client.EnableSsl = true;
 
                 // Set client.UseDefaultCredentials = false above before setting your SMTP credentials next
-                //client.Credentials = new System.Net.NetworkCredential("username", "password");
+                client.Credentials = new System.Net.NetworkCredential("1ab37874acd8a9", "169d00a33c724c");
 
                 System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
                 mailMessage.From = new System.Net.Mail.MailAddress("donotreply@mycompany.com", "Some Display Name");
-                mailMessage.To.Add("Richard.Nunez@mycompany.com");
+                mailMessage.To.Add("Antebios1@gmail.com");
                 mailMessage.Subject = Subject;
                 mailMessage.IsBodyHtml = true;
                 mailMessage.Body = Body;
                 client.Send(mailMessage);
                 IsSent = true;
-            } catch
+            } catch (Exception e)
             {
+                File.AppendAllText(fileName, string.Format("An error occurred: '{0}'\n\n", e.InnerException.Message));
+                Console.WriteLine("An error occurred: {0}", e.InnerException.Message);
                 IsSent = false;
             }
             

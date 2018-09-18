@@ -5,23 +5,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace TFSLabelTagNotifcation
 {
     public class TFSLabelsDataProvider
     {
-        // Set your database connection string here, or put it into a config file to recall it.
-        private readonly string connectionString = "Server=sqlserver.name.goes.here\\sqlinstance;Database=DevOps_TFSMetrics; User ID=sql_login; Password=sql_password";
+        IConfiguration _configuration;
 
-        //public string GetConnection()
-        //{
-        //    var connection = _configuration.GetSection("ConnectionStrings").GetSection("TFSMetricsDatabase").Value;
-        //    return connection;
-        //}
+        public TFSLabelsDataProvider()
+        {
+#if !DEBUG
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(PlatformServices.Default.Application.ApplicationBasePath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+#else
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(PlatformServices.Default.Application.ApplicationBasePath)
+                .AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true)
+                .Build();
+#endif
+            _configuration = configuration;
+        }
+
+        // Set your database connection string here, or put it into a config file to recall it.
+        // private readonly string connectionString = "Server=sqlserver.name.goes.here\\sqlinstance;Database=DevOps_TFSMetrics; User ID=sql_login; Password=sql_password";
+
+        public string GetConnection()
+        {
+            var connection = _configuration.GetSection("ConnectionStrings").GetSection("TFSMetricsDatabase").Value;
+            
+            return connection;
+        }
 
         public IEnumerable<RawLabelsModel> GetTFSLabels()
         {
-            //var connectionString = this.GetConnection();
+            var connectionString = this.GetConnection();
             using (var sqlConnection = new SqlConnection(connectionString))
             {
                 return sqlConnection.Query<RawLabelsModel>("spcGetLabelQueue", null, commandType: CommandType.StoredProcedure);
@@ -32,7 +54,7 @@ namespace TFSLabelTagNotifcation
         
         public FinalLabelsModel GetLabelRecord(int LabelId)
         {
-            //var connectionString = this.GetConnection();
+            var connectionString = this.GetConnection();
             using (var sqlConnection = new SqlConnection(connectionString))
             {
                 var dynamicParameters = new DynamicParameters();
@@ -46,7 +68,7 @@ namespace TFSLabelTagNotifcation
 
         public void MarkAsSent(int LabelId)
         {
-            //var connectionString = this.GetConnection();
+            var connectionString = this.GetConnection();
             using (var sqlConnection = new SqlConnection(connectionString))
             {
                 var dynamicParameters = new DynamicParameters();
