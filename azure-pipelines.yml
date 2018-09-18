@@ -12,6 +12,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: BatchScript@1
+  inputs:
+    filename: 'C:\Windows\System32\cmd.exe'
+    arguments: '/c set'
+
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
