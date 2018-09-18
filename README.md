@@ -1,3 +1,7 @@
+# Build Status
+
+Latest Build: [![Build Status](https://dev.azure.com/Antebios/Antebios/_apis/build/status/tfs-label-notification)](https://dev.azure.com/Antebios/Antebios/_build/latest?definitionId=1) &nbsp; &nbsp; &nbsp; Master Build: ![Build Status](https://dev.azure.com/Antebios/Antebios/_apis/build/status/tfs-label-notification?branchName=master)
+
 # About this project
 
 This project outputs a .NET Core Windows Service that queries a MSSQL Table that is populated from TFS version control labels.  It then sends an email to a list of users with information about the label that was just created.

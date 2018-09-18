@@ -12,6 +12,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: GitVersion@3
+
 - task: BatchScript@1
   inputs:
     filename: 'C:\Windows\System32\cmd.exe'
