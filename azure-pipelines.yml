@@ -37,3 +37,4 @@ steps:
     codeCoverageEnabled: True
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    otherConsoleOptions: '/Framework:.NETCoreApp,Version=v2.1'
