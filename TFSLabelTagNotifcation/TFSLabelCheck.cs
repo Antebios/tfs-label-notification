@@ -116,13 +116,6 @@ namespace TFSLabelTagNotifcation
             bool IsSent = false;
             try
             {
-                //var client = new System.Net.Mail.SmtpClient("smtp.mailtrap.io", 2525)
-                //{
-                //    Credentials = new System.Net.NetworkCredential("1ab37874acd8a9", "169d00a33c724c"),
-                //    EnableSsl = true
-                //};
-                //client.Send("from@example.com", "Antebios1@gmail.com", "Hello world", "testbody");
-
                 System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.mailtrap.io", 2525);
                 //client.UseDefaultCredentials = true;
                 client.EnableSsl = true;
@@ -132,7 +125,7 @@ namespace TFSLabelTagNotifcation
 
                 System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
                 mailMessage.From = new System.Net.Mail.MailAddress("donotreply@mycompany.com", "Some Display Name");
-                mailMessage.To.Add("Antebios1@gmail.com");
+                mailMessage.To.Add("Some.User@company.com");
                 mailMessage.Subject = Subject;
                 mailMessage.IsBodyHtml = true;
                 mailMessage.Body = Body;
