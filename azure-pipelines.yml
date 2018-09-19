@@ -34,7 +34,7 @@ steps:
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*test*.dll,!**\*TestAdapter*.dll,!**\obj\**'
+    testAssemblyVer2: '**\*test*.dll!**\*TestAdapter*.dll!**\obj\**'
     vstestLocation: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\TestPlatform\'
     codeCoverageEnabled: True
     platform: '$(buildPlatform)'
