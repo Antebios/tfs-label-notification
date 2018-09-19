@@ -33,10 +33,7 @@ steps:
 
 - task: VSTest@2
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*test*.dll,!**\*TestAdapter.dll,!**\obj\**'
     vstestLocation: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\TestPlatform\'
-    codeCoverageEnabled: True
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-    otherConsoleOptions: '/Framework:.NETCoreApp,Version=v2.1 /logger:console;verbosity=normal'
+    otherConsoleOptions: '/Framework:.NETCoreApp,Version=v2.1'
