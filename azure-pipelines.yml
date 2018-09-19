@@ -13,26 +13,31 @@ variables:
 
 steps:
 - task: GitVersion@3
+  displayName: 'Run GitVersion'
 
 - task: BatchScript@1
+  displayName: 'Print Env Variables'
   inputs:
     filename: 'C:\Windows\System32\cmd.exe'
     arguments: '/c set'
 
 - task: NuGetToolInstaller@0
+  displayName: 'Install NuGet Tool'
 
 - task: NuGetCommand@2
+  displayName: 'Restore NuGet Packages'
   inputs:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
+  displayName: 'Compile Solution'
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
 - task: VSTest@2
-  displayName: 'VsTest - testAssemblies'
+  displayName: 'Run Unit Tests'
   inputs:
     testAssemblyVer2: |
      **\$(BuildConfiguration)\*test*.dll
@@ -45,3 +50,11 @@ steps:
     otherConsoleOptions: '/platform:x64 /Framework:.NETCoreApp,Version=v2.1 /logger:console;verbosity="normal" '
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Service'
+  inputs:
+    command: 'publish'
+    projects: '$(Build.SourcesDirectory)\TFSLabelTagNotifcation\TFSLabelTagNotifcation.csproj'
+    configuration: '$(buildConfiguration)'
+    packDirectory: '$(Build.ArtifactStagingDirectory)'
