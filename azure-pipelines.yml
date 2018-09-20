@@ -14,6 +14,7 @@ variables:
 trigger:
 - master
 - features/*
+- refs/tags/*
 
 steps:
 - task: GitVersion@3
