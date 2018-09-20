@@ -12,10 +12,8 @@ variables:
   buildConfiguration: 'Release'
 
 trigger:
-  branches:
-    include: |
-     *
-     ref/tags/*
+- *
+- ref/tags/*
 
 steps:
 - task: GitVersion@3
