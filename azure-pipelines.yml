@@ -16,6 +16,7 @@ trigger:
     include:
       - master
       - features/*
+      - *
       - refs/tags/*
 
 steps:
