@@ -11,6 +11,11 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+trigger:
+  branches:
+    include: '*'
+    include: 'ref/tags/*'
+
 steps:
 - task: GitVersion@3
   displayName: 'Run GitVersion'
