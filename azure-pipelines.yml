@@ -12,9 +12,11 @@ variables:
   buildConfiguration: 'Release'
 
 trigger:
-- master
-- features/*
-- refs/tags/*
+  branches:
+    include:
+      - master
+      - features/*
+      - refs/tags/*
 
 steps:
 - task: GitVersion@3
