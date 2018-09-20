@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TFSLabelTagNotifcation;
+using TFSLabelTagNotification;
 using PeterKottas.DotNetCore.WindowsService.Interfaces;
 
 namespace TFSLabelTagNotificationTests

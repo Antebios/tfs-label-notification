@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TFSLabelTagNotifcation
+namespace TFSLabelTagNotification
 {
     public class RawLabelsModel
     {

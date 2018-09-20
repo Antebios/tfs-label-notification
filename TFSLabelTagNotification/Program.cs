@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.Extensions.PlatformAbstractions;
 using PeterKottas.DotNetCore.WindowsService;
 
-namespace TFSLabelTagNotifcation
+namespace TFSLabelTagNotification
 {
     class Program
     {

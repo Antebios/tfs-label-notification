@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFSLabelTagNotifcation", "TFSLabelTagNotifcation\TFSLabelTagNotifcation.csproj", "{665138D5-5E36-4A74-9F5B-31B0889A5FD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFSLabelTagNotification", "TFSLabelTagNotification\TFSLabelTagNotification.csproj", "{665138D5-5E36-4A74-9F5B-31B0889A5FD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{A161CFF6-3E40-4286-8BB6-BFD5FDF3DCC6}"
 	ProjectSection(SolutionItems) = preProject

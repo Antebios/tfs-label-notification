@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 
 
-namespace TFSLabelTagNotifcation
+namespace TFSLabelTagNotification
 {
     public class TFSLabelCheck : MicroService, IMicroService
     {

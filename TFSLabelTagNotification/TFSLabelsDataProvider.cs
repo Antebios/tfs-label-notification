@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.PlatformAbstractions;
 
-namespace TFSLabelTagNotifcation
+namespace TFSLabelTagNotification
 {
     public class TFSLabelsDataProvider
     {
