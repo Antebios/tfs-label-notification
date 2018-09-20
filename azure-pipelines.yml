@@ -14,8 +14,6 @@ variables:
 trigger:
   branches:
     include:
-      - master
-      - features/*
       - refs/heads/*
       - refs/tags/*
 
