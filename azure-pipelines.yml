@@ -56,7 +56,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: 'False'
-    projects: '$(Build.SourcesDirectory)\TFSLabelTagNotifcation\TFSLabelTagNotifcation.csproj'
+    projects: '$(Build.SourcesDirectory)\TFSLabelTagNotification\TFSLabelTagNotification.csproj'
     configuration: '$(buildConfiguration)'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
     workingDirectory: '$(Build.SourcesDirectory)\TFSLabelTagNotifcation'
