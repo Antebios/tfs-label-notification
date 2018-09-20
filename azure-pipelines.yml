@@ -59,4 +59,4 @@ steps:
     projects: '$(Build.SourcesDirectory)\TFSLabelTagNotification\TFSLabelTagNotification.csproj'
     configuration: '$(buildConfiguration)'
     packDirectory: '$(Build.ArtifactStagingDirectory)'
-    workingDirectory: '$(Build.SourcesDirectory)\TFSLabelTagNotifcation'
+    workingDirectory: '$(Build.SourcesDirectory)\TFSLabelTagNotification'
