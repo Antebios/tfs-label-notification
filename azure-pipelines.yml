@@ -12,8 +12,8 @@ variables:
   buildConfiguration: 'Release'
 
 trigger:
-- *
-- ref/tags/*
+- master
+- features/*
 
 steps:
 - task: GitVersion@3
