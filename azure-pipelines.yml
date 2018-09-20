@@ -13,8 +13,9 @@ variables:
 
 trigger:
   branches:
-    include: '*'
-    include: 'ref/tags/*'
+    include: |
+     *
+     ref/tags/*
 
 steps:
 - task: GitVersion@3
