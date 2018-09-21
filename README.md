@@ -1,6 +1,14 @@
-# Build Status
+# Status
 
-Latest Build: [![Build Status](https://dev.azure.com/Antebios/Antebios/_apis/build/status/tfs-label-notification)](https://dev.azure.com/Antebios/Antebios/_build/latest?definitionId=1) &nbsp; &nbsp; &nbsp; Master Build: ![Build Status](https://dev.azure.com/Antebios/Antebios/_apis/build/status/tfs-label-notification?branchName=master)
+<center>
+
+|            |         |
+|-----------:|:-------:|
+|Latest Build|[![Build Status](https://dev.azure.com/Antebios/Antebios/_apis/build/status/tfs-label-notification)](https://dev.azure.com/Antebios/Antebios/_build/latest?definitionId=1)|
+|Master Build|![Build Status](https://dev.azure.com/Antebios/Antebios/_apis/build/status/tfs-label-notification?branchName=master)|
+|License|[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)|
+
+</center>
 
 # About this project
 
@@ -48,7 +56,7 @@ This component is very similar to TopShelf.  It allows you to run a Windows Serv
  This is used for database communication.
 
 ## Hard-coded values
-  The database connection string is hard coded in the code file TFSLabelsDataProvider.cs on line #14.  It is assigned to the variable "connectionString".  It is using a MSSQL login.  The account should at least have READ-ONLY access to the TFS database, but dbo to the DevOps\_TFSMetrics database so it can do all the work there.
+  The database connection string is removed from code and placed in the appsettings.json and appsettings.Development.json files. It is using a MSSQL login.  The account should at least have READ-ONLY access to the TFS database, but dbo to the DevOps\_TFSMetrics database so it can do all the work there.
 
   The Email Send-To list is in the code file TFSLabelCheck.cs in the method "SendEmail".  In the same code file is the timer for the service, which is set to 30k milliseconds, which is 5-minutes.  So, the service will execute every 5 minutes and check for newly created TFSVC labels.
 
